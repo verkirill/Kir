@@ -9,7 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
-public class secondTest extends WebDriverSetting {
+public class secondTest extends BaseTest {
 
     @Test
     public void Test1() {
@@ -20,23 +20,47 @@ public class secondTest extends WebDriverSetting {
      }
     @Test
     public void Test2() {
-//      Переход с домашней страницы в почту
-        WebElement element = driver.findElement(By.className("home-link"));
-        element.click();
-//      Поиск и ввод логина
-        WebElement element1 = driver.findElement(By.name("login"));
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        element1.sendKeys("verkirill");
-        element1.submit();
-//      Поиск и ввод пароля
-        WebElement element2 = driver.findElement(By.className("passp-form-field"));
-        element2.click();
-        WebElement element3 = driver.findElement(By.id("passp-field-passwd"));
-        element3.sendKeys("");//здесь должен быть пароль
-        element3.submit();
-//      Поиск кол-ва писем
+        gotoMail("home-link");
+
+        enterLogin(searchLogin(), "verkirill");
+
+        enterPassword();
+
+        searchMails();
+
+    }
+
+    private void searchMails() {
         int mail = driver.findElements(By.xpath("//span[@title='Simbirsoft theme']")).size();
         System.out.println("Количество писем с темой Simbirsoft theme " + mail);
+    }
 
+    private void enterPassword() {
+        searchPassword("passp-form-field");
+        WebElement element3 = driver.findElement(By.id("passp-field-passwd"));
+        element3.sendKeys("ByntuhfK123");
+        element3.submit();
+    }
+
+    private void searchPassword(String s) {
+        WebElement element2 = driver.findElement(By.className(s));
+        element2.click();
+    }
+
+    private void enterLogin(WebElement webElement, String verkirill) {
+        WebElement element1 = webElement;
+        element1.sendKeys(verkirill);
+        element1.submit();
+    }
+
+    private WebElement searchLogin() {
+        WebElement element1 = driver.findElement(By.name("login"));
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        return element1;
+    }
+
+    private void gotoMail(String s) {
+        WebElement element = driver.findElement(By.className(s));
+        element.click();
     }
 }
