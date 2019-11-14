@@ -2,11 +2,8 @@ package ru.yandex;
 
 import org.junit.*;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class secondTest extends BaseTest {
@@ -24,7 +21,7 @@ public class secondTest extends BaseTest {
 
         enterLogin(searchLogin(), "verkirill");
 
-        enterPassword();
+        enterPassword(searchPassword(),"ByntuhfK123");
 
         searchMails();
 
@@ -35,21 +32,21 @@ public class secondTest extends BaseTest {
         System.out.println("Количество писем с темой Simbirsoft theme " + mail);
     }
 
-    private void enterPassword() {
-        searchPassword("passp-form-field");
-        WebElement element3 = driver.findElement(By.id("passp-field-passwd"));
-        element3.sendKeys("ByntuhfK123");
-        element3.submit();
+    private void enterPassword(WebElement webElement1,CharSequence password) {
+        WebElement element2 = webElement1;
+        element2.sendKeys(password);
+        element2.submit();
     }
 
-    private void searchPassword(String s) {
-        WebElement element2 = driver.findElement(By.className(s));
+    private WebElement searchPassword() {
+        WebElement element2 = driver.findElement(By.className("passp-form-field"));
         element2.click();
+        return element2;
     }
 
-    private void enterLogin(WebElement webElement, String verkirill) {
+    private void enterLogin(WebElement webElement, String login) {
         WebElement element1 = webElement;
-        element1.sendKeys(verkirill);
+        element1.sendKeys(login);
         element1.submit();
     }
 
