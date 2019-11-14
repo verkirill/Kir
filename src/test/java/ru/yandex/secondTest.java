@@ -21,7 +21,7 @@ public class secondTest extends BaseTest {
 
         enterLogin(searchLogin(), "verkirill");
 
-        enterPassword(searchPassword(),"ByntuhfK123");
+        enterPassword(searchPassword(),"пароль");
 
         searchMails();
 
