@@ -2,14 +2,13 @@ package ru.yandex.pageObject;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import ru.yandex.test.SecondTest;
 
 public class LoginIn extends Base {
     public LoginIn(AppManager manager) {
         super(manager);
     }
 
-    public WebElement searchLogin(SecondTest secondTest) {
+    public WebElement searchLogin() {
         WebElement element1 = driver.findElement(By.name("login"));
         return element1;
     }
@@ -20,7 +19,7 @@ public class LoginIn extends Base {
         element1.submit();
     }
 
-    public WebElement searchPassword(SecondTest secondTest) {
+    public WebElement searchPassword() {
         WebElement element2 = driver.findElement(By.className("passp-form-field"));
         element2.click();
         return element2;

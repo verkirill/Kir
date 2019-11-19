@@ -7,16 +7,17 @@ public class SecondTest extends BaseTest {
     @Test
     public void Test1() {
 //      Проверка title страницы
+        app.navigationPage.openMainPage();
         String title = app.driver.getTitle();
-        Assert.assertTrue(title.equals("Яндекс"));
+        Assert.assertEquals(title,"Яндекс");
      }
 
     @Test
     public void Test2() {
-        app.navigationPage.openMainPage(this);
-        app.navigationPage.gotoMail("home-link", this);
-        app.loginIn.enterLogin(app.loginIn.searchLogin(this), "логин");
-        app.loginIn.enterPassword(app.loginIn.searchPassword(this),"пароль");
-        app.searchMails.searchMails(this);
+        app.navigationPage.openMainPage();
+        app.navigationPage.gotoMail("home-link");
+        app.loginIn.enterLogin(app.loginIn.searchLogin(),"логин") ;
+        app.loginIn.enterPassword(app.loginIn.searchPassword(),"пароль");
+        app.searchMails.searchMails();
     }
 }
