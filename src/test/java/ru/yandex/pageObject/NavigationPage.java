@@ -1,11 +1,10 @@
 package ru.yandex.pageObject;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
-public class NavigationPage extends Base {
+public class NavigationPage extends BasePage {
 
-    public NavigationPage(AppManager manager) {
+    public NavigationPage(AppManagerPage manager) {
         super(manager);
     }
 
@@ -14,7 +13,6 @@ public class NavigationPage extends Base {
     }
 
     public void gotoMail(String maillink) {
-        WebElement element = driver.findElement(By.className(maillink));
-        element.click();
+        driver.findElement(By.className(maillink)).click();
     }
 }

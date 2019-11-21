@@ -2,14 +2,14 @@ package ru.yandex.test;
 
 import org.junit.After;
 import org.junit.Before;
-import ru.yandex.pageObject.AppManager;
+import ru.yandex.pageObject.AppManagerPage;
 
 public class BaseTest {
-    protected AppManager app;
+    protected AppManagerPage app;
 
     @Before
     public void SetUp() {
-        app = new AppManager();
+        app = new AppManagerPage();
     }
 
     @After

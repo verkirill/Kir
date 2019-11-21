@@ -1,6 +1,7 @@
 package ru.yandex.test;
 
 import org.junit.*;
+import ru.yandex.pageObject.SearchMailsPage;
 
 public class SecondTest extends BaseTest {
 
@@ -16,8 +17,8 @@ public class SecondTest extends BaseTest {
     public void Test2() {
         app.navigationPage.openMainPage();
         app.navigationPage.gotoMail("home-link");
-        app.loginIn.enterLogin(app.loginIn.searchLogin(),"логин") ;
-        app.loginIn.enterPassword(app.loginIn.searchPassword(),"пароль");
-        app.searchMails.searchMails();
+        app.loginPage.authorization("логин","пароль");
+        int mail = app.searchMailsPage.searchMails();
+        Assert.assertEquals(mail,2);
     }
 }
