@@ -2,6 +2,7 @@ package ru.yandex.pageObject;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 public class AppManagerPage {
@@ -11,11 +12,13 @@ public class AppManagerPage {
     public NavigationPage navigationPage;
     public LoginPage loginPage;
     public SearchMailsPage searchMailsPage;
+    private Properties properties;
 
-    public AppManagerPage() {
+    public AppManagerPage(Properties properties) {
+        this.properties = properties;
         System.setProperty("webdriver.chrome.driver", "/home/kir/chromedriver");
         driver = new ChromeDriver();
-        baseUrl = "http://yandex.ru";
+        baseUrl = properties.getProperty("baseUrl");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         navigationPage = new NavigationPage(this);
