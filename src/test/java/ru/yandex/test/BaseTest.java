@@ -3,7 +3,6 @@ package ru.yandex.test;
 import org.junit.After;
 import org.junit.Before;
 import ru.yandex.pageObject.AppManagerPage;
-
 import java.io.File;
 import java.io.FileReader;
 import java.util.Properties;
