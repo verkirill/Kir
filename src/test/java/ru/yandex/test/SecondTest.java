@@ -17,7 +17,7 @@ public class SecondTest extends BaseTest {
         app.navigationPage.openMainPage();
         app.navigationPage.gotoMail("home-link");
         app.loginPage.authorization();
-        int mail = app.searchMailsPage.searchMails();
-        Assert.assertEquals(mail,2);
+        int mails = app.searchMailsPage.searchMails();
+        Assert.assertEquals(mails,2);
     }
 }

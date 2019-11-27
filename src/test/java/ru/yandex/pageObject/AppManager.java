@@ -5,7 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
-public class AppManagerPage {
+public class AppManager {
     public WebDriver driver;
     public String baseUrl;
     public String login;
@@ -16,7 +16,7 @@ public class AppManagerPage {
     public SearchMailsPage searchMailsPage;
     private Properties properties;
 
-    public AppManagerPage(Properties properties) {
+    public AppManager(Properties properties) {
         this.properties = properties;
         System.setProperty("webdriver.chrome.driver", "/home/kir/chromedriver");
         driver = new ChromeDriver();

@@ -2,14 +2,14 @@ package ru.yandex.test;
 
 import org.junit.After;
 import org.junit.Before;
-import ru.yandex.pageObject.AppManagerPage;
+import ru.yandex.pageObject.AppManager;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
 
 public class BaseTest{
-    protected AppManagerPage app;
+    protected AppManager app;
 
     @Before
     public void SetUp() {
@@ -19,7 +19,7 @@ public class BaseTest{
         } catch (IOException e) {
             e.printStackTrace();
         }
-        app = new AppManagerPage(properties);
+        app = new AppManager(properties);
     }
 
     @After

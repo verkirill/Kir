@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 
 public class NavigationPage extends BasePage {
 
-    public NavigationPage(AppManagerPage manager) {
+    public NavigationPage(AppManager manager) {
         super(manager);
     }
 
