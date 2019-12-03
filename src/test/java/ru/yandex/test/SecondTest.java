@@ -9,7 +9,7 @@ public class SecondTest extends BaseTest {
 //      Проверка title страницы
         app.navigationPage.openMainPage();
         String title = app.driver.getTitle();
-        Assert.assertEquals(title,"Яндекс");
+        Assert.assertEquals(title, "Яндекс");
      }
 
     @Test
@@ -18,6 +18,6 @@ public class SecondTest extends BaseTest {
         app.navigationPage.gotoMail("home-link");
         app.loginPage.authorization();
         int mails = app.searchMailsPage.searchMails();
-        Assert.assertEquals(mails,2);
+        Assert.assertEquals(mails, 2);
     }
 }

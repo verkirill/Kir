@@ -13,5 +13,4 @@ public class LoginPage extends BasePage {
         driver.findElement(By.name("passwd")).sendKeys(manager.password);
         driver.findElement(By.cssSelector("div.passp-button.passp-sign-in-button")).click();
     }
-
 }
